@@ -1,0 +1,19 @@
+name = 'pizzeria'
+license = 'MIT'
+licenselink = 'https://github.com/owner/repo/LICENSE'
+description = 'Simple theme for personal site, inspired by electro.pizza, with the catppuccin palette and using bootstrap 5.'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/xvalcarce/pizzeria'
+
+# If you have a running demo of the theme
+demosite = 'https://valcarce.fr'
+
+# Taxonomy terms
+tags = ['blog', 'simple', 'personal', 'dark', 'catppuccin', 'bootstrap']
+features = []
+
+# If the theme has a single author
+[author]
+  name = 'Xavier Valcarce'
+  homepage = 'https://valcarce.fr'
