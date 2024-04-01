@@ -1,0 +1,15 @@
+/* Bootstrap 5 */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+	color: $text;
+	background-color: $base;
+}
+
+h2,a {
+	background-color: $base;
+};
+
+#title {
+	color: $text;
+};

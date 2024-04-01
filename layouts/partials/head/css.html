@@ -1,4 +1,21 @@
-{{- with resources.Get "css/main.css" }}
+{{ $options := dict
+  "targetPath" "css/style.css"
+  "transpiler" "dartsass"
+}}
+
+<!-- Load Catppuccin flavor -->
+{{ $theme_css := "sass/colors/_mocha.scss" }}
+{{ if .Site.Params.style.flavor }}
+	{{ $theme_css = replace $theme_css "mocha" .Site.Params.style.flavor }}
+{{ end }}
+{{ $scssTheme := resources.Get $theme_css}}
+{{ $scssTheme = $scssTheme | resources.ExecuteAsTemplate "theme.scss" . }}
+<!-- Load sass using Dart -->
+{{ $scssMain := resources.Get "sass/main.scss" }}
+{{ $scss := slice $scssTheme $scssMain | resources.Concat "sass/main.scss" }}
+{{ $css := $scss | toCSS (dict "targetPath" "assets/css/main.css") }}
+
+{{ with $css | toCSS $options }}
   {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- else }}
@@ -6,4 +23,4 @@
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{- end }}
   {{- end }}
-{{- end }}
+{{- end }} 

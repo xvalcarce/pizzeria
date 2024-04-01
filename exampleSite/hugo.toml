@@ -2,3 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Pizzeria'
 theme = 'pizzeria'
+
+[params]
+  [params.style]
+    flavor = "mocha" # latte, frappe, macchiato or mocha
