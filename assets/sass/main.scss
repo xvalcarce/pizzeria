@@ -1,13 +1,26 @@
 /* Bootstrap 5 */
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+// === Import Font Awesome ===
+@import "../../node_modules/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/fontawesome-free/scss/solid.scss";
+@import "../../node_modules/fontawesome-free/scss/brands.scss";
+.fa-1x {
+  font-size: 0.9em !important;
+}
+
+
 body {
 	color: $text;
 	background-color: $base;
 }
 
-h2,a {
+h2 {
 	background-color: $base;
+};
+
+a {
+	color: $text;
 };
 
 #title {

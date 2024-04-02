@@ -4,5 +4,14 @@ title = 'Pizzeria'
 theme = 'pizzeria'
 
 [params]
+  headerName = "taglio·pizza"
+  headerSubtitle = "Una storia di passione e tradizione"
+  [[params.social]]
+	icon = "fab fa-github fa-1x"
+    url = "https://github.com/xvalcarce"
+  [[params.social]]
+    icon = "fab fa-twitter fa-1x"
+	url = "https://twitter.com/Plut0n_"
+		
   [params.style]
     flavor = "mocha" # latte, frappe, macchiato or mocha
