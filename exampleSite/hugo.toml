@@ -1,7 +1,10 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Pizzeria'
-theme = 'pizzeria'
+
+[module]
+  [[module.imports]]
+    path = "github.com/xvalcarce/pizzeria"
 
 [params]
   headerName = "taglio·pizza"
@@ -12,6 +15,9 @@ theme = 'pizzeria'
   [[params.social]]
     icon = "fab fa-twitter fa-1x"
 	url = "https://twitter.com/Plut0n_"
+  [[params.social]]
+  	icon = "fab fa-google-scholar fa-1x"
+	url = "https://scholar.google.com/citations?user=OULhh8IAAAAJ"
 		
   [params.style]
-    flavor = "mocha" # latte, frappe, macchiato or mocha
+    flavor = "frappe" # latte, frappe, macchiato or mocha
