@@ -1,8 +1,9 @@
 // === Bootstrap 5 ===
+$enable-negative-margins: true;
 @import "../scss/bootstrap/bootstrap";
 
 // === Import Font Awesome ===
-$fa-font-path: "../webfonts";
+$fa-font-path: "../fonts";
 @import "../scss/fontawesome/fontawesome.scss";
 @import "../scss/fontawesome/solid.scss";
 @import "../scss/fontawesome/brands.scss";
@@ -10,20 +11,29 @@ $fa-font-path: "../webfonts";
   font-size: 0.9em !important;
 }
 
-
 body {
-	color: $text;
-	background-color: $base;
+  font-family: 'Hack';
+  color: $text;
+  background-color: $base;
+}
+
+.width {
+  width: 100%;
+  max-width: 39rem;
+}
+
+#subtitle {
+  font-weight: bold;
 }
 
 h2 {
 	background-color: $base;
-};
+}
 
 a {
 	color: $text;
-};
+}
 
 #title {
 	color: $text;
-};
+}
