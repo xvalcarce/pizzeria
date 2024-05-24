@@ -1,7 +1,42 @@
 {{ define "main" }}
+	<div class="row" id="subtitle"> 
+	    <div class="col text-sm-left pt-sm-4">
+			<p id="subtitle">
+	            {{ if .Site.Params.headerSubtitle }}
+	                {{ .Site.Params.headersubtitle }}
+	            {{ end }}
+	        </p>
+		</div>
+	</div>
+	
+	{{ if .Site.Params.Social }}
+	{{ $len := (len $.Site.Params.Social) }}
+	<div class="row mt-n3">
+		<div class="col-sm-auto pe-0">
+			<p>Find me on</p>
+		</div>
+		<div class="col-sm ps-2">
+	        <ul id="nav-social" class="list-inline">
+					<li class="list-inline-item">
+					{{ range $k, $v := $.Site.Params.Social}} 
+						{{if eq (add $k 1) $len }}
+							and 
+							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
+								<i class="{{ .icon }}"></i>
+	                    	</a>.
+						{{ else}}
+							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
+								<i class="{{ .icon }}"></i>
+	                    	</a>,
+						{{ end }}
+					{{ end }}
+	                </li>
+			</ul>
+			{{ end }}
+		</div>
+	</div>
   {{ .Content }}
   {{ range site.RegularPages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
   {{ end }}
 {{ end }}

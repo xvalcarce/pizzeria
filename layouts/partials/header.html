@@ -1,49 +1,27 @@
-<header class="container mt-sm-7 mt-4 mb-4 ml-5">
-	<div class="row">
-    	<div class="col-12 text-center">
-		<h2 class="m-0 mb-2">
-			<a href="/" class="text-decoration-none">
-				{{ if .Site.Params.headerName }}
-					{{ .Site.Params.headerName }}
-    	        {{ else }}
-    	            Header Name
-    	        {{ end }}
-    	    </a>
-    	</h2>
-	</div>
-	<div class="row">
-        <div class="col text-sm-left pt-sm-4">
-			<p id="subtitle">
-                {{ if .Site.Params.headerSubtitle }}
-                    {{ .Site.Params.headersubtitle }}
-                {{ end }}
-            </p>
-		</div>
-	</div>
-
-	{{ if .Site.Params.Social }}
-	{{ $len := (len $.Site.Params.Social) }}
-	<div class="row">
-		<div class="col-sm-auto pe-0">
-			<p>Find me on</p>
-		</div>
-		<div class="col-sm ps-2">
-            <ul id="nav-social" class="list-inline">
-					<li class="list-inline-item">
-					{{ range $k, $v := $.Site.Params.Social}} 
-						{{if eq (add $k 1) $len }}
-							and 
-							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
-								<i class="{{ .icon }}"></i>
-                        	</a>.
-						{{ else}}
-							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
-								<i class="{{ .icon }}"></i>
-                        	</a>,
+<div class="py-4">
+	<div class="row" id="header">
+		<div id="logo" class="col-md-auto"></div>
+		<div class="col text-left">
+			<div class="row">
+				<div class="col-12">
+					<h3 class="m-0 mb-2">
+						<a href="/" class="text-decoration-none">
+							{{ if .Site.Params.headerName }}
+								{{ .Site.Params.headerName }}
+				        	{{ else }}
+				        	    Header Name
+				        	{{ end }}
+				    	</a>
+					</h3>
+				</div>
+				<div class="col-12">
+					<ul class="list-inline horizontal-list">
+						{{ range .Data.Terms.Alphabetical }}
+						<li class="list-inline-item">{{ .Page.Title }}</li>
 						{{ end }}
-					{{ end }}
-                    </li>
-			</ul>
-			{{ end }}
-    </div>
-</header>
+	    			</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
