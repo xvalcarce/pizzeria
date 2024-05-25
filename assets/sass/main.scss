@@ -17,6 +17,49 @@ body {
   background-color: $base;
 }
 
+#header {
+  #logo {
+    background-image: url('/images/logo.svg');
+    width: 50px;
+    height: 50px;
+  }
+    
+  &:hover {
+    #logo {
+      background-image: url('/images/logoHover.svg');
+    }
+  }
+
+  .horizontal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+      margin-right: 30px;
+      position: relative;
+      
+      &:not(:last-child)::after {
+        content: "|";
+        position: absolute;
+        margin-right: 10px;
+        margin-left: 10px;
+        color: $peach;
+      }
+
+      a {
+        color: $lavender;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline; // Underline on hover
+        }
+      }
+    }
+  }
+}
+
 .width {
   width: 100%;
   max-width: 39rem;
@@ -24,10 +67,6 @@ body {
 
 #subtitle {
   font-weight: bold;
-}
-
-h2 {
-	background-color: $base;
 }
 
 a {

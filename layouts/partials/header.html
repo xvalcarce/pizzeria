@@ -15,9 +15,9 @@
 					</h3>
 				</div>
 				<div class="col-12">
-					<ul class="list-inline horizontal-list">
+					<ul class="horizontal-list">
 						{{ range .Site.Menus.main }}
-							<li class="list-inline-item"><a href="{{.PageRef}}">{{ .Name }}</a></li>
+							<li><a href="{{.PageRef}}">{{ .Name }}</a></li>
 						{{ end }}
 	    			</ul>
 				</div>
