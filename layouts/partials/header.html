@@ -16,8 +16,8 @@
 				</div>
 				<div class="col-12">
 					<ul class="list-inline horizontal-list">
-						{{ range .Data.Terms.Alphabetical }}
-						<li class="list-inline-item">{{ .Page.Title }}</li>
+						{{ range .Site.Menus.main }}
+							<li class="list-inline-item"><a href="{{.PageRef}}">{{ .Name }}</a></li>
 						{{ end }}
 	    			</ul>
 				</div>
