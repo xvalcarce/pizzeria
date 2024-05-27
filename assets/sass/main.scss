@@ -60,6 +60,16 @@ body {
   }
 }
 
+#nav-social {
+  a {
+    color: $lavender;
+    text-decoration: none;
+    &:hover {
+      color: $peach;
+    }
+  }
+}
+
 .width {
   width: 100%;
   max-width: 39rem;

@@ -1,6 +1,6 @@
 {{ define "main" }}
 	<div class="row" id="subtitle"> 
-	    <div class="col text-sm-left pt-sm-4">
+	    <div class="col text-sm-left">
 			<p id="subtitle">
 	            {{ if .Site.Params.headerSubtitle }}
 	                {{ .Site.Params.headersubtitle }}
@@ -21,11 +21,11 @@
 					{{ range $k, $v := $.Site.Params.Social}} 
 						{{if eq (add $k 1) $len }}
 							and 
-							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
+							<a href="{{ .url }}"> 
 								<i class="{{ .icon }}"></i>
 	                    	</a>.
 						{{ else}}
-							<a href="{{ .url }}" class="link-offset-2 link-underline link-underline-opacity-0">
+							<a href="{{ .url }}">
 								<i class="{{ .icon }}"></i>
 	                    	</a>,
 						{{ end }}
@@ -35,8 +35,27 @@
 			{{ end }}
 		</div>
 	</div>
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ end }}
+
+	{{ range .Site.Params.pageTypes }}
+  	<h2>{{ . | title }}</h2>
+  	<ul>
+    	{{ range first $.Site.Params.pageTypesN (where $.Site.RegularPages "Type" .) }}
+    		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    	{{ end }}
+  	</ul>
+  	{{ end }}
+
+
+	{{ range .Site.Params.listTypes }}
+  	<h2>{{ . | title }}</h2>
+  	<ul>
+    	{{ range first $.Site.Params.listTypesN (where $.Site.RegularPages "Type" .) }}
+    		<li>
+				<a href="{{ .Params.Link }}">{{ .Title }}</a>
+				<small>{{ .Content }}</small>
+			</li>
+    	{{ end }}
+  	</ul>
+  	{{ end }}
+
 {{ end }}

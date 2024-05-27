@@ -4,6 +4,4 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
 
-Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat
-pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim
-excepteur excepteur pariatur nostrud qui irure ullamco.
+A short description of what can be found in this website. This is, however, is not mandatory, just remove the file `_index.md` in the content directory.
