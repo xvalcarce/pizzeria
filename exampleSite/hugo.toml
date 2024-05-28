@@ -13,7 +13,7 @@ title = 'Pizzeria'
   logo = "images/logo.svg"
   logoHoover = "images/logoHoover.svg"
   pageTypes = ["posts"]
-  pageTypesN = 5
+  pageTypesN = 2
   listTypes = ["pizzas"]
   listTypesN = 5
   [[params.social]]

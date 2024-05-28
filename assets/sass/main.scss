@@ -80,6 +80,10 @@ body {
 }
 
 #home {
+  .mt-sep {
+    margin-top: ($spacer *3) !important;
+  }
+
   a {
     color: $text;
     text-decoration: underline;
@@ -104,6 +108,21 @@ body {
   li {
     @media (max-width: 500px) {
       flex-direction: column;
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+
+    a {
+      padding: 4px 6px;
+      border-radius: 5px;
+      background-color: $surface0;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $surface1;
+      }
     }
   }
 }

@@ -11,37 +11,41 @@
 	
 	{{ if .Site.Params.Social }}
 	{{ $len := (len $.Site.Params.Social) }}
-	<div class="row mt-n3">
-		<div class="col-sm-auto pe-0">
-			<p>Find me on</p>
-		</div>
-		<div class="col-sm ps-2">
+	<div class="row mt-n3 mb-n3">
 	        <ul id="nav-social" class="list-inline">
-					<li class="list-inline-item">
+				<li class="list-inline-item">
+					Find me on,
+				</li>
 					{{ range $k, $v := $.Site.Params.Social}} 
 						{{if eq (add $k 1) $len }}
 							and 
+							<li class="list-inline-item">
 							<a href="{{ .url }}"> 
 								<i class="{{ .icon }}"></i>
 	                    	</a>.
+	                </li>
 						{{ else}}
+							<li class="list-inline-item">
 							<a href="{{ .url }}">
 								<i class="{{ .icon }}"></i>
 	                    	</a>,
+	                </li>
 						{{ end }}
 					{{ end }}
-	                </li>
 			</ul>
-			{{ end }}
-		</div>
 	</div>
+	{{ end }}
 
 	<div id="home">
-		<div class="pageTypes">
+		<div class="pageTypes mt-sep">
 			{{ range .Site.Params.pageTypes }}
+			{{ $c := 0 }}
+			{{ $pages := where $.Site.RegularPages "Type" . }}
+			{{ $lpages := ($pages | len) }}
 			<h2 class="section"><a href="/{{.}}/">{{ . | title }}</a></h2>
   			<ul class="list-unstyled ms-4">
-    			{{ range first $.Site.Params.pageTypesN (where $.Site.RegularPages "Type" .) }}
+    			{{ range first $.Site.Params.pageTypesN $pages }}
+				{{ $c = add $c 1 }}
     				<li class="py-1 d-flex">
 						<span class="col-3 date">
 							{{ .Date | time.Format "2006·01·02"}}
@@ -53,14 +57,23 @@
 
     			{{ end }}
   			</ul>
+			{{ if lt $c $lpages}}
+			<div class="pagination">
+				<a href="/{{.}}/">Showing {{ $c }} of {{ $lpages }}</a>
+			</div>
+			{{ end }}
   			{{ end }}
 		</div>
 
-		<div class="listTypes">
+		<div class="listTypes mt-sep">
 			{{ range .Site.Params.listTypes }}
+			{{ $c := 0 }}
+			{{ $pages := where $.Site.RegularPages "Type" . }}
+			{{ $lpages := ($pages | len) }}
 			<h2 class="section"><a href="/{{.}}/">{{ . | title }}</a></h2>
   			<ul class="list-unstyled ms-4">
-    			{{ range first $.Site.Params.listTypesN (where $.Site.RegularPages "Type" .) }}
+	 			{{ range first $.Site.Params.listTypesN $pages }}
+				{{ $c = add $c 1 }}
     				<li class="d-flex">
 						<span class="col-3 date">
 							{{ .Date | time.Format "2006·01·02"}}
@@ -72,6 +85,11 @@
 					</li>
     			{{ end }}
   			</ul>
+			{{ if lt $c $lpages}}
+			<div class="pagination">
+				<a href="/{{.}}/">Showing {{ $c }} of {{ $lpages }}</a>
+			</div>
+			{{ end }}
   			{{ end }}
 		</div>
 	</div>
