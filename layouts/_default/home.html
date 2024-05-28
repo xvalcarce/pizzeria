@@ -36,26 +36,44 @@
 		</div>
 	</div>
 
-	{{ range .Site.Params.pageTypes }}
-  	<h2>{{ . | title }}</h2>
-  	<ul>
-    	{{ range first $.Site.Params.pageTypesN (where $.Site.RegularPages "Type" .) }}
-    		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-    	{{ end }}
-  	</ul>
-  	{{ end }}
+	<div id="home">
+		<div class="pageTypes">
+			{{ range .Site.Params.pageTypes }}
+			<h2 class="section"><a href="/{{.}}/">{{ . | title }}</a></h2>
+  			<ul class="list-unstyled ms-4">
+    			{{ range first $.Site.Params.pageTypesN (where $.Site.RegularPages "Type" .) }}
+    				<li class="py-1 d-flex align-items-center">
+						<span class="col-3 date">
+							{{ .Date | time.Format "2006·01·02"}}
+						</span>
+						<div class="col-9 d-flex flex-column">
+							<a href="{{ .Params.Link }}">{{ .Title }}</a>
+					    </div>
+					</li>
 
+    			{{ end }}
+  			</ul>
+  			{{ end }}
+		</div>
 
-	{{ range .Site.Params.listTypes }}
-  	<h2>{{ . | title }}</h2>
-  	<ul>
-    	{{ range first $.Site.Params.listTypesN (where $.Site.RegularPages "Type" .) }}
-    		<li>
-				<a href="{{ .Params.Link }}">{{ .Title }}</a>
-				<small>{{ .Content }}</small>
-			</li>
-    	{{ end }}
-  	</ul>
-  	{{ end }}
+		<div class="listTypes">
+			{{ range .Site.Params.listTypes }}
+			<h2 class="section"><a href="/{{.}}/">{{ . | title }}</a></h2>
+  			<ul class="list-unstyled ms-4">
+    			{{ range first $.Site.Params.listTypesN (where $.Site.RegularPages "Type" .) }}
+    				<li class="d-flex">
+						<span class="col-3 date">
+							{{ .Date | time.Format "2006·01·02"}}
+						</span>
+						<div class="col-9 d-flex flex-column">
+							<a href="{{ .Params.Link }}">{{ .Title }}</a>
+							<span>{{ .Content }}</span>
+					    </div>
+					</li>
+    			{{ end }}
+  			</ul>
+  			{{ end }}
+		</div>
+	</div>
 
 {{ end }}
