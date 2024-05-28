@@ -42,7 +42,7 @@
 			<h2 class="section"><a href="/{{.}}/">{{ . | title }}</a></h2>
   			<ul class="list-unstyled ms-4">
     			{{ range first $.Site.Params.pageTypesN (where $.Site.RegularPages "Type" .) }}
-    				<li class="py-1 d-flex align-items-center">
+    				<li class="py-1 d-flex">
 						<span class="col-3 date">
 							{{ .Date | time.Format "2006·01·02"}}
 						</span>

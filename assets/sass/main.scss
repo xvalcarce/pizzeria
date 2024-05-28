@@ -100,4 +100,10 @@ body {
   .date {
     color: $overlay1;
   }
+
+  li {
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
+  }
 }
