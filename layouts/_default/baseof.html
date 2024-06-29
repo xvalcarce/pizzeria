@@ -3,17 +3,17 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
-  <div class="container width my-4 px-4">
-		<header>
-				{{ partial "header.html" . }}
-		</header>
-		<main>
-				{{ block "main" . }}{{ end }}
-		</main>
-	</div>
-  <footer class="container width my-4 px-2">
-    {{ partial "footer.html" . }}
-  </footer>
+<body class="d-flex flex-column min-vh-100">
+		<div class="container width my-4 px-4 flex-grow-1">
+				<header>
+						{{ partial "header.html" . }}
+				</header>
+				<main>
+						{{ block "main" . }}{{ end }}
+				</main>
+		</div>
+		<div class="container width-footer my-4 px-2" id="footer">
+				{{ partial "footer.html" . }}
+		</div>
 </body>
 </html>
