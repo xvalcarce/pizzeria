@@ -15,7 +15,6 @@
 	        <ul id="nav-social" class="list-inline">
 				<li class="list-inline-item">
 					Find me on,
-				</li>
 					{{ range $k, $v := $.Site.Params.Social}} 
 						{{if eq (add $k 1) $len }}
 							and 
@@ -23,13 +22,11 @@
 							<a href="{{ .url }}"> 
 								<i class="{{ .icon }}"></i>
 	                    	</a>.
-	                </li>
 						{{ else}}
 							<li class="list-inline-item">
 							<a href="{{ .url }}">
 								<i class="{{ .icon }}"></i>
 	                    	</a>,
-	                </li>
 						{{ end }}
 					{{ end }}
 			</ul>
@@ -51,7 +48,7 @@
 							{{ .Date | time.Format "2006·01·02"}}
 						</span>
 						<div class="col-9 d-flex flex-column">
-							<a href="{{ .Params.Link }}">{{ .Title }}</a>
+							<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 					    </div>
 					</li>
 
