@@ -133,7 +133,16 @@ body {
 }
 
 #footer {
-  font-size: 11px;
+  font-size: 13px;
+
+  a {
+    color: $lavender;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline; // Underline on hover
+    }
+  }
 
   .footer-center {
     .horizontal-list {
@@ -153,16 +162,11 @@ body {
           margin-left: 10px;
           color: $peach;
         }
-  
-        a {
-          color: $lavender;
-          text-decoration: none;
-  
-          &:hover {
-            text-decoration: underline; // Underline on hover
-          }
-        }
       }
     }
+  }
+
+  #attribution {
+    font-size: 10px;
   }
 }

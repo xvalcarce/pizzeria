@@ -1,6 +1,7 @@
-<div class="row">
-<div class="footer-left col-4">
-		<span title="{{.Site.Params.Copyright.owner }}">
+<div class="container">
+  <div class="row justify-content-between align-items-center">
+    <div class="col-auto">
+		<span title="{{.Site.Params.Copyright.licence }}">
 		{{ range .Site.Params.Copyright.icons }}
 				<i class="{{ . }}"></i/>
 		{{ end }}
@@ -8,22 +9,22 @@
 		{{ if .Site.Params.Copyright.includeOwner }}
 		<span> {{ .Site.Params.Copyright.owner }} </span>
 		{{ end }}
-</div>
-
-<div class="footer-center d-flex justify-content-center col-4">
-	<div>
+    </div>
+    <div class="col-auto footer-center text-center">
 		<ul class="horizontal-list">
 		{{ range .Site.Menus.main }}
 				<li><a href="{{.PageRef}}">{{ .Name }}</a></li>
 		{{ end }}
-	  </ul>
-	</div>
-</div>
-
-<div class="footer-right col-4">
-		Powered by
-		<a href="https://gohugo.io/">Hugo</a>
-		&
-		<a href="https://github.com/xvalcarce/pizzeria">Pizzeria</a>
-</div>
+		</ul>
+    </div>
+  </div>
+  {{ if .Site.Params.Footer.includeAttribution }}
+  <div class="d-flex justify-content-center" id="attribution">
+	  <span>
+		  Powered by
+		  <a href="https://gohugo.io/">Hugo</a> &  
+		  <a href="https://github.com/xvalcarce/pizzeria">Pizzeria</a>
+		</span>
+  </div>
+  {{ end }}
 </div>
